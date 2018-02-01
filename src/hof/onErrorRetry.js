@@ -2,7 +2,13 @@ import Rx from "rxjs";
 
 export const MAX_RETRY = 3;
 const RETRY_DELAY = 500;
-export const onGet5XXErrorRetryHOF = fetch => (input, init = {}) => {
+/**
+ * Creat a fetch which retries when:
+ * + GET with 500 error
+ * + Network error
+ * @param {*} fetch
+ */
+export const onErrorRetryHOF = fetch => (input, init = {}) => {
   if (!init.method || init.method.toUpperCase() === "GET") {
     let count = 0;
     return Rx.Observable.defer(() => {

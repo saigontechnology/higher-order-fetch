@@ -1,5 +1,5 @@
 /**
- * A higher-order fetch that bypass cache:
+ * Create a fetch which bypass cache
  */
 export const bypassCacheHOF = fetch => (input, init) => {
   let bypassCacheUrl;
