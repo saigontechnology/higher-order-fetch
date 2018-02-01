@@ -21,7 +21,7 @@ describe("on5XXErrorRetryHOF(fetch)", () => {
     expect(actualResponse).toEqual(expectErrorResponse);
   });
 
-  test("retry when fetch keeps response 500 error", async () => {
+  test("retry and fail after MAX_RETRY times", async () => {
     const expectErrorResponse = { status: 500 };
     const mockFetch = jest.fn(
       () =>
@@ -34,7 +34,7 @@ describe("on5XXErrorRetryHOF(fetch)", () => {
 
     const actualResponse = await onGet5XXErrorRetryFetch("http://my.url");
 
-    expect(mockFetch.mock.calls.length).toBe(3);
+    expect(mockFetch.mock.calls.length).toBe(MAX_RETRY);
     expect(actualResponse).toEqual(expectErrorResponse);
   });
 
