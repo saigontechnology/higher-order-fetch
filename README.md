@@ -2,7 +2,7 @@
 
 See article here: https://medium.com/@rudy.huynh286/higher-order-fetch-a-clean-way-to-enhance-fetch-method-21fc2765f76
 
-This does not mean to be a library. It is a proof of concept for higher-order fetch, an idea that makes fetch enhancement elegent such as:
+Despite being well tested and ready for production, this repo does not mean to be a library. It is a proof of concept for higher-order fetch, an idea that makes fetch enhancement elegent such as:
 * Keep the simplicity of original fetch API after enhancement
 * Easy to organize and manage multiple enhancement
 * Easy to write test
@@ -16,7 +16,6 @@ import enhancedFetch from './src'
 // use enhancedFetch() just like original fetch():
 enhancedFetch('https://my.url').then(/* ... */)
 ```
-
 
 # CLI
 * npm install
