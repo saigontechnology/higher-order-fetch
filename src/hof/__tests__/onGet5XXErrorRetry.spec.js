@@ -1,7 +1,5 @@
 import { onGet5XXErrorRetryHOF, MAX_RETRY } from "../onGet5XXErrorRetry";
-import { TestScheduler } from "rxjs";
 
-const testScheduler = new TestScheduler();
 describe("on5XXErrorRetryHOF(fetch)", () => {
   test("NOT retry when HTTP method is NOT GET", async () => {
     const expectErrorResponse = { status: 500 };
