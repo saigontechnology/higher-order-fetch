@@ -19,7 +19,11 @@
   "jest": {
     "setupFiles": [
       "./jest/globals.js"
-    ]
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.*"
+    ],
+    "collectCoverage": true
   },
   "dependencies": {
     "rxjs": "^5.5.6"
