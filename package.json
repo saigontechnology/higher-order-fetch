@@ -14,7 +14,7 @@
     "regenerator-runtime": "^0.11.1"
   },
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest"
   },
   "jest": {
     "setupFiles": [
