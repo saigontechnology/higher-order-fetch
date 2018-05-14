@@ -1,4 +1,11 @@
-import Rx from "rxjs";
+import { Observable } from "rxjs/Observable";
+import "rxjs/add/observable/defer";
+import "rxjs/add/observable/fromPromise";
+import "rxjs/add/observable/of";
+import "rxjs/add/observable/throw";
+import "rxjs/add/operator/retryWhen";
+import "rxjs/add/operator/mergeMap";
+import "rxjs/add/operator/delay";
 
 export const MAX_RETRY = 3;
 const RETRY_DELAY = 500;
@@ -11,8 +18,8 @@ const RETRY_DELAY = 500;
 export const onErrorRetryHOF = fetch => (input, init = {}) => {
   if (!init.method || init.method.toUpperCase() === "GET") {
     let count = 0;
-    return Rx.Observable.defer(() => {
-      return Rx.Observable.fromPromise(
+    return Observable.defer(() => {
+      return Observable.fromPromise(
         fetch(input, init).then(resp => {
           if ((resp.status + "").startsWith("5")) throw resp;
           return resp;
@@ -22,9 +29,9 @@ export const onErrorRetryHOF = fetch => (input, init = {}) => {
       .retryWhen(errors => {
         return errors.mergeMap(error => {
           if (++count >= MAX_RETRY) {
-            return Rx.Observable.throw(error);
+            return Observable.throw(error);
           } else {
-            return Rx.Observable.of(error).delay(RETRY_DELAY);
+            return Observable.of(error).delay(RETRY_DELAY);
           }
         });
       })
