@@ -1,4 +1,4 @@
-# HIGHER-ORDER FETCH (HOF) EXAMPLE [![Build Status](https://travis-ci.org/stssoftware/higher-order-fetch.svg?branch=master)](https://travis-ci.org/stssoftware/higher-order-fetch)
+# HIGHER-ORDER FETCH EXAMPLE [![Build Status](https://travis-ci.org/stssoftware/higher-order-fetch.svg?branch=master)](https://travis-ci.org/stssoftware/higher-order-fetch)
 
 See article here: https://medium.com/@rudy.huynh286/higher-order-fetch-a-clean-way-to-enhance-fetch-method-21fc2765f76
 
